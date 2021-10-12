@@ -1,0 +1,9 @@
+configs:
+  pubsubEndpoint: "gcloud:8085"
+  pubsubCredential: ""
+  pubsubProjectId: "pulsar-io-google-pubsub"
+  pubsubTopicId: "test-pubsub-sink-avro"
+  pubsubSchemaId: "test-pubsub-sink-avro"
+  pubsubSchemaType: "AVRO"
+  pubsubSchemaEncoding: "JSON"
+  pubsubSchemaDefinition: '{"type":"record","name":"User","fields":[{"name":"key","type":"string"}]}'

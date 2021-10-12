@@ -1,0 +1,5 @@
+configs:
+  pubsubEndpoint: "gcloud:8085"
+  pubsubCredential: ""
+  pubsubProjectId: "pulsar-io-google-pubsub"
+  pubsubTopicId: "test-pubsub-source"

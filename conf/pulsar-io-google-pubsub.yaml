@@ -1,0 +1,67 @@
+#
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+#
+
+configs:
+  # pubsubEndpoint is Google Cloud Pub/Sub end-point.
+  #
+  # This field is optional.
+  #
+  gcloudEndpoint: ""
+
+  # pubsubCredential is Google Cloud credential string.
+  #
+  # This field is optional.
+  #
+  pubsubCredential: ""
+
+  # pubsubProjectId is Google Cloud project id.
+  #
+  # This field is *required*.
+  #
+  pubsubProjectId: "your-project-id"
+
+  # pubsubTopicId is used to read from or written to Google Cloud Pub/Sub.
+  #
+  # This field is *required*.
+  #
+  pubsubTopicId: "your-topic-id"
+
+  # pubsubSchemaId is used to set schema id on create schema.
+  #
+  # This field is optional.
+  #
+  # pubsubSchemaId:
+
+  # pubsubSchemaType is used to set schema type on create schema, only supports: AVRO.
+  #
+  # This field is optional.
+  #
+  # pubsubSchemaType:
+
+  # pubsubSchemaEncoding is used to set schema encoding on create schema, only supports: JSON.
+  #
+  # This field is optional.
+  #
+  # pubsubSchemaEncoding:
+
+  # pubsubSchemaDefinition is used to create scheme or parse the message on create schema.
+  #
+  # This field is optional.
+  #
+  # pubsubSchemaDefinition:
