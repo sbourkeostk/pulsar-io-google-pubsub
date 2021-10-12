@@ -16,7 +16,28 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+package org.apache.pulsar.ecosystem.io.pubsub;
+
+import java.io.IOException;
+import java.util.Map;
+import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
+
 /**
- * Classes for implementing a pulsar IO connector that generates randomized messages.
+ * PubsubConnector is base class for sink and source.
  */
-package org.apache.pulsar.ecosystem.io.random;
+@Slf4j
+public class PubsubConnector {
+    @Getter
+    private PubsubConnectorConfig config;
+
+    public void initialize(Map<String, Object> config) throws IOException {
+        if (config == null) {
+            throw new IllegalArgumentException("configuration cannot be null");
+        }
+
+        // load the configuration and validate it
+        this.config = PubsubConnectorConfig.load(config);
+        this.config.validate();
+    }
+}
