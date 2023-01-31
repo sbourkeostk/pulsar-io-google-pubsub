@@ -58,6 +58,7 @@ Before using the Google Cloud Pub/Sub source connector, you need to configure it
 | `pubsubSchemaType` | String | false | "" (empty string) | The schema type. You must set the schema type when creating a schema for Google Cloud Pub/Sub topics. Currently, only the AVRO format is supported. |
 | `pubsubSchemaEncoding` | String | false | "" (empty string) | The encoding of the schema. You must set the schema encoding when creating a schema for Google Cloud Pub/Sub topics. Currently, only the JSON format is supported.|
 | `pubsubSchemaDefinition` | String | false | "" (empty string) |  The definition of the schema. It is used to create a schema to or parse messages from Google Cloud Pub/Sub topics. |
+| `pubsubSubscriptionId` | String | false | pubsubTopicId | The name of the subscription on pubsub. If not set, the pubsub topic name is used as the subscription name. |
 
 > **Note**
 >
