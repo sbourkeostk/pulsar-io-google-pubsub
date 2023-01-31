@@ -61,6 +61,7 @@ public class PubsubConnectorTest {
                 + "   }\n"
                 + " ]\n"
                 + "}";
+        String subscriptionId = "test-pubsub-subscription-" + System.currentTimeMillis();
 
         Map<String, Object> properties = new HashMap<>();
         properties.put("pubsubEndpoint", endpoint);
@@ -71,6 +72,7 @@ public class PubsubConnectorTest {
         properties.put("pubsubSchemaType", schemaType);
         properties.put("pubsubSchemaEncoding", schemaEncoding);
         properties.put("pubsubSchemaDefinition", schemaDefinition);
+        properties.put("pubsubSubscriptionId", subscriptionId);
 
         PubsubConnector connector = new PubsubConnector();
         connector.initialize(properties);
@@ -85,5 +87,6 @@ public class PubsubConnectorTest {
         assertEquals(schemaType, connector.getConfig().getPubsubSchemaType().toString());
         assertEquals(schemaEncoding, connector.getConfig().getPubsubSchemaEncoding().toString());
         assertEquals(schemaDefinition, connector.getConfig().getPubsubSchemaDefinition());
+        assertEquals(subscriptionId, connector.getConfig().getPubsubSubscriptionId());
     }
 }

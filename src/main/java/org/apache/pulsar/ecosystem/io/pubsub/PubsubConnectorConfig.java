@@ -123,6 +123,14 @@ public class PubsubConnectorConfig implements Serializable {
     )
     private String pubsubSchemaDefinition = "";
 
+    @FieldDoc(
+            required = false,
+            defaultValue = "",
+            help = "pubsubSubscriptionId is used to set pubsub subscription name. If not set, it defaults"
+                    + "to the pubsub topic name"
+    )
+    private String pubsubSubscriptionId = null;
+
     private transient TransportChannelProvider transportChannelProvider = null;
     private transient CredentialsProvider credentialsProvider = null;
 
@@ -140,6 +148,10 @@ public class PubsubConnectorConfig implements Serializable {
                 PubsubConnectorConfig.class);
         pubsubConnectorConfig.transportChannelProvider = pubsubConnectorConfig.newTransportChannelProvider();
         pubsubConnectorConfig.credentialsProvider = pubsubConnectorConfig.newCredentialsProvider();
+        // Uses topic name as subscription by default.
+        if (pubsubConnectorConfig.pubsubSubscriptionId == null) {
+            pubsubConnectorConfig.pubsubSubscriptionId = pubsubConnectorConfig.pubsubTopicId;
+        }
         return pubsubConnectorConfig;
     }
 
@@ -201,7 +213,7 @@ public class PubsubConnectorConfig implements Serializable {
     }
 
     public Subscriber newSubscriber(MessageReceiver receiver) throws IOException {
-        ProjectSubscriptionName subscriptionName = ProjectSubscriptionName.of(pubsubProjectId, pubsubTopicId);
+        ProjectSubscriptionName subscriptionName = ProjectSubscriptionName.of(pubsubProjectId, pubsubSubscriptionId);
 
         SubscriptionAdminSettings subscriptionAdminSettings =
                 SubscriptionAdminSettings.newBuilder()
